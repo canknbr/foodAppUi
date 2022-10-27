@@ -12,7 +12,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import ListCategories from '../components/ListCategories';
 
 const HomeScreen = () => {
-  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <View style={styles.header}>
@@ -51,7 +50,9 @@ const HomeScreen = () => {
           <Icon name="tune" size={24} color={COLORS.white} />
         </View>
       </View>
-      <ListCategories selectedIndex={selectedCategoryIndex} />
+      <View>
+        <ListCategories />
+      </View>
     </SafeAreaView>
   );
 };

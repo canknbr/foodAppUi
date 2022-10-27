@@ -6,17 +6,25 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import categories from '../data/categories';
 import COLORS from '../data/colors';
-const ListCategories = ({selectedIndex}) => {
+const ListCategories = () => {
+  const [selectedIndex, setSelectedCategoryIndex] = useState(0);
+
+  const handleButtonPress = index => {
+    setSelectedCategoryIndex(index);
+  };
   return (
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.categoriesContainer}>
       {categories.map((category, index) => (
-        <TouchableOpacity activeOpacity={0.5} key={index}>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          key={index}
+          onPress={() => handleButtonPress(index)}>
           <View
             style={[
               styles.categoryBtn,
@@ -24,7 +32,11 @@ const ListCategories = ({selectedIndex}) => {
                 backgroundColor:
                   selectedIndex === index ? COLORS.primary : COLORS.secondary,
               },
-            ]}></View>
+            ]}
+          />
+          <View style={styles.categoryBtnImgIcon}>
+            
+          </View>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -46,22 +58,5 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
   },
-  //   categoryContainer: {
-  //     alignItems: 'center',
-  //     marginRight: 30,
-  //   },
-  //   categoryImageContainer: {
-  //     width: 80,
-  //     height: 80,
-  //     borderRadius: 40,
-  //     backgroundColor: '#fff',
-  //     alignItems: 'center',
-  //     justifyContent: 'center',
-  //   },
-  //     categoryImage: {
-  //     width: 60,
-  //     height: 60,
-
-  //     }
 });
 export default ListCategories;
