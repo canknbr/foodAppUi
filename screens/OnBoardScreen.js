@@ -6,6 +6,7 @@ import COLORS from '../data/colors';
 import PrimaryButton from '../components/Button';
 
 const OnBoardScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <View style={{height: 400}}>
@@ -39,7 +40,10 @@ const OnBoardScreen = () => {
           <View style={styles.indicator} />
         </View>
         <View>
-          <PrimaryButton title="Get Started" />
+          <PrimaryButton
+            title="Get Started"
+            onPress={() => navigation.navigate('Home')}
+          />
         </View>
       </View>
     </SafeAreaView>
