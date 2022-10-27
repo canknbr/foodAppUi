@@ -32,10 +32,11 @@ const ListCategories = () => {
                 backgroundColor:
                   selectedIndex === index ? COLORS.primary : COLORS.secondary,
               },
-            ]}
-          />
-          <View style={styles.categoryBtnImgIcon}>
-            
+            ]}>
+            <View style={styles.categoryBtnImgIcon}>
+              <Image source={category.image} style={styles.categoryImage} />
+            </View>
+            <Text style={styles.categoryName}>{category.name}</Text>
           </View>
         </TouchableOpacity>
       ))}
@@ -57,6 +58,26 @@ export const styles = StyleSheet.create({
     paddingVertical: 30,
     paddingHorizontal: 20,
     alignItems: 'center',
+  },
+  categoryBtnImgIcon: {
+    height: 35,
+    width: 35,
+    borderRadius: 18,
+    backgroundColor: COLORS.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  categoryImage: {
+    height: 35,
+    width: 35,
+    resizeMode: 'cover',
+  },
+  categoryName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: COLORS.white,
+    marginLeft: 10,
+    textTransform: 'capitalize',
   },
 });
 export default ListCategories;

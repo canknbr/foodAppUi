@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   TextInput,
+  FlatList,
 } from 'react-native';
 import React, {useState} from 'react';
 import COLORS from '../data/colors';
@@ -53,6 +54,7 @@ const HomeScreen = () => {
       <View>
         <ListCategories />
       </View>
+      <FlatList />
     </SafeAreaView>
   );
 };
