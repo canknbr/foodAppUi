@@ -11,6 +11,8 @@ import React, {useState} from 'react';
 import COLORS from '../data/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ListCategories from '../components/ListCategories';
+import Card from '../components/Card';
+import foods from '../data/foods';
 
 const HomeScreen = () => {
   return (
@@ -54,7 +56,13 @@ const HomeScreen = () => {
       <View>
         <ListCategories />
       </View>
-      <FlatList />
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={foods}
+        numColumns={2}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => <Card foods={item} />}
+      />
     </SafeAreaView>
   );
 };
