@@ -11,6 +11,18 @@ const PrimaryButton = ({title, onPress = () => {}}) => {
     </TouchableOpacity>
   );
 };
+
+const SecondaryButton = ({title, onPress = () => {}}) => {
+  return (
+    <TouchableOpacity
+      style={styles.secondaryButtonContainer}
+      activeOpacity={0.5}
+      onPress={onPress}>
+      <Text style={{color: COLORS.primary, fontSize: 18}}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
+
 export const styles = StyleSheet.create({
   buttonContainer: {
     height: 50,
@@ -19,5 +31,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  secondaryButtonContainer: {
+    height: 50,
+    backgroundColor: COLORS.light,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
-export default PrimaryButton;
+export {PrimaryButton, SecondaryButton};

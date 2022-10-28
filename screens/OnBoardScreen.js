@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import COLORS from '../data/colors';
-import PrimaryButton from '../components/Button';
+import {PrimaryButton} from '../components/Button';
 
 const OnBoardScreen = () => {
   const navigation = useNavigation();
